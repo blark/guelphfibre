@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guelph's two-tier internet — candidate scorecard</title>
+<meta name="description" content="Three questions put to every 2026 Guelph mayoral and Ward 2 council candidate about internet service, and the answers received.">
+<style>
+:root{
+  --paper:#fbfbf9; --ink:#16191d; --muted:#5d6570; --rule:#dfe1e4;
+  --card:#fff; --yes:#1f6f43; --no:#8a3324; --pending:#8a8f96;
+  --accent:#0b4f6c;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){
+    --paper:#0f1215; --ink:#e8eaed; --muted:#9aa2ad; --rule:#272c33;
+    --card:#161a1f; --yes:#6fc08d; --no:#e08a73; --pending:#767d86;
+    --accent:#6bb3cc;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px 80px}
+header{padding:56px 0 28px;border-bottom:2px solid var(--ink)}
+h1{font-size:clamp(28px,4.6vw,42px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+.sub{font-size:19px;color:var(--muted);margin:0;max-width:60ch}
+.updated{margin-top:20px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  margin:52px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+p{max-width:68ch}
+a{color:var(--accent)}
+.q{counter-reset:q;list-style:none;padding:0;margin:0}
+.q li{counter-increment:q;display:flex;gap:14px;margin-bottom:14px}
+.q li::before{content:counter(q);flex:none;width:26px;height:26px;border-radius:3px;
+  background:var(--card);border:1px solid var(--rule);display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:600;color:var(--accent)}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.date{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);font-size:14px}
+.pill{display:inline-block;padding:2px 9px;border-radius:11px;font-size:12px;font-weight:600;
+  border:1px solid currentColor}
+.pill.yes{color:var(--yes)} .pill.no{color:var(--no)} .pill.pending{color:var(--pending)}
+.note{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:18px 20px;font-size:15px}
+.note p{margin:0 0 10px} .note p:last-child{margin:0}
+figure{margin:22px 0;padding:0}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.cmp{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:20px 0}
+.cmp div{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:16px}
+.cmp .addr{font-size:13px;color:var(--muted);margin-bottom:6px}
+.cmp .spd{font-size:26px;font-weight:700;letter-spacing:-.02em}
+.cmp .prc{font-size:14px;color:var(--muted);margin-top:4px}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
+  font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Guelph's two-tier internet</h1>
+  <p class="sub">Three questions put to every candidate for Mayor and Ward&nbsp;2 Council
+  in the 26&nbsp;October 2026 municipal election. Answers are published verbatim.</p>
+  <p class="updated">Last updated 3 September 2026</p>
+</header>
+
+<section>
+  <h2>Why</h2>
+  <p>Bell sells two different products in Guelph at the same list price. These
+  quotes were taken from bell.ca on the same day, on the same two-year term.</p>
+
+  <div class="cmp">
+    <div>
+      <div class="addr">A residential address 2.7 km from City Hall</div>
+      <div class="spd">50 / 10 Mbps</div>
+      <div class="prc">$85/month list</div>
+    </div>
+    <div>
+      <div class="addr">19 Elmira Road · 4.4 km from City Hall</div>
+      <div class="spd">3,000 / 3,000 Mbps</div>
+      <div class="prc">$85/month list</div>
+    </div>
+  </div>
+
+  <p>Sixty times the download speed and three hundred times the upload speed,
+  for the same money. The slower address is the one closer to downtown.</p>
+
+  <p>Bell announced fibre for 44,000 Guelph homes in April 2022. After the CRTC
+  ordered it to sell competitors access to that fibre at a regulated price, Bell
+  cut more than $1.2&nbsp;billion from its buildout and stopped. Parts of Guelph
+  were finished. Others were not.</p>
+</section>
+
+<section>
+  <h2>The questions</h2>
+  <p>Every candidate receives the same three questions, in the same words, by email.</p>
+  <ol class="q">
+    <li><p>Will you fund a dig-once policy, so City conduit goes into the ground
+    whenever a street is rebuilt, and is offered to any carrier?</p></li>
+    <li><p>Will you direct staff to report within six months on the City's spare
+    conduit and dark fibre, and the terms on which a competing provider could use it?</p></li>
+    <li><p>Will you meet with carriers in your first year, with that conduit and
+    fibre as the offer, and report publicly on what they tell you?</p></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Mayor</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Candidate</th><th>Contacted</th><th>Replied</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr><td>Leanne Caron</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+      <tr><td>Ken Yee Chew</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+      <tr><td>John Edward Krusky</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+      <tr><td>Ryan Meunier</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+      <tr><td>Evaristo Ramos Jr.</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+      <tr><td>Rajee Sinha</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Ward 2</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Candidate</th><th>Contacted</th><th>Replied</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr><td>Michael Barber</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Michelle Bowman</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Troy Bridgeman</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Greg Cox</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Morgan Dandie</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Kim Fry</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Rodrigo Goller</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Alec Purves</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td>Barbara Mann</td><td class="date">no contact published</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:14px;color:var(--muted);margin-top:12px">Carly Klassen withdrew
+  after filing and is not listed. Barbara Mann has no contact information published on
+  the City's certified candidate list and could not be reached.</p>
+</section>
+
+<section>
+  <h2>Method</h2>
+  <div class="note">
+    <p>Every candidate is emailed the same three questions in the same words.
+    Answers are reproduced verbatim, in full, without editing or commentary.
+    Candidates who do not reply are recorded as not having replied.</p>
+    <p>This page is maintained in a public git repository. Each answer is
+    committed on the day it arrives, so the history shows when every entry was
+    added and that nothing was revised afterwards.</p>
+    <p>If you are a candidate and your answer is recorded incorrectly, or you
+    replied and are shown as not having replied, <a id="c" href="#">get in touch</a>
+    and it will be corrected.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Maintained by Mark Baseggio, a resident of Ward 2, Guelph.
+  Source and full history: <a href="https://github.com/blark/guelphfibre">github.com/blark/guelphfibre</a></p>
+</footer>
+
+</div>
+<script>
+(function(){
+  var a=document.getElementById('c'); if(!a) return;
+  var u=['bWFyaw==','YmFzZWdnaW8=','Y2E='].map(atob);
+  var e=u[0]+String.fromCharCode(64)+u[1]+'.'+u[2];
+  a.href='mailto:'+e+'?subject='+encodeURIComponent('guelphfibre.ca correction');
+  a.textContent=e;
+})();
+</script>
+</body>
+</html>
