@@ -50,31 +50,44 @@ h1{font-family:"Newsreader",Georgia,serif;font-weight:700;
 h1 em{font-style:normal;color:var(--slow)}
 .lede{font-size:19px;line-height:1.5;color:var(--muted);margin:20px 0 0;max-width:46ch}
 
-/* ── proof ── */
-.proof{margin:44px 0 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
-.line{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 0;border-bottom:1px solid var(--hair)}
-.line:last-child{border-bottom:none}
-.lhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.who{font-size:15px;font-weight:500}
-.who small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
-.cost{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;white-space:nowrap}
-.bars{display:grid;gap:7px}
-.bar{display:grid;grid-template-columns:34px 1fr 108px;align-items:center;gap:12px}
-.bar .dir{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.bar .track{height:18px;background:var(--hair);border-radius:2px;overflow:hidden}
-.bar .fill{display:block;height:100%;background:var(--fast);border-radius:2px;min-width:2px}
-.bar.slow .fill{background:var(--slow)}
-.bar .num{font-family:"JetBrains Mono",monospace;font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
-.bar.slow .num{color:var(--slow);font-weight:700}
-.scalenote{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);padding:0 0 22px}
+/* ── the deal ── */
+.deal{margin:44px 0 0;border:1px solid var(--rule);background:var(--surface)}
+.dealtop{margin:0;padding:14px 22px;border-bottom:1px solid var(--rule);
+  font:700 11px/1 "Public Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted)}
+.ov{padding:26px 22px 22px;display:grid;gap:26px}
+.ovrow{display:grid;gap:7px}
+.ovdir{margin:0;font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ovtrack{position:relative;height:44px;background:var(--fast);border-radius:2px;
+  display:flex;align-items:center;justify-content:flex-end;padding:0 14px}
+.ovmine{position:absolute;left:0;top:0;bottom:0;background:var(--slow);
+  border-radius:2px 0 0 2px;min-width:3px;
+  box-shadow:1px 0 0 var(--surface)}
+.ovmax{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700;
+  color:var(--paper);font-variant-numeric:tabular-nums;position:relative}
+.ovmine-l{margin:0;font-size:13.5px;line-height:1.45;color:var(--muted);
+  padding-left:11px;border-left:2px solid var(--slow)}
+.ovmine-l span{font-family:"JetBrains Mono",monospace;font-weight:700;
+  font-size:14px;color:var(--slow)}
+.ovkey{margin:0;font-size:12px;color:var(--muted)}
 
-.punch{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 8px}
-.punch div{background:var(--paper);padding:20px 18px}
-.punch b{display:block;font-family:"Newsreader",serif;font-weight:700;font-size:40px;
-  line-height:1;letter-spacing:-.03em;color:var(--slow)}
-.punch div:last-child b{color:var(--fast)}
-.punch span{display:block;font-size:13px;color:var(--muted);margin-top:7px}
+.payoff{border-top:1px solid var(--rule);padding:24px 22px 28px;
+  display:grid;gap:14px;align-items:end;grid-template-columns:minmax(0,1fr) auto}
+.pretext{margin:0;font-size:14.5px;line-height:1.5;color:var(--muted);max-width:32ch}
+.big{margin:0;font-family:"Newsreader",Georgia,serif;font-weight:700;
+  font-size:clamp(48px,10vw,84px);line-height:.92;letter-spacing:-.04em;
+  color:var(--slow);text-align:right;white-space:nowrap}
+.big span{display:block;font-family:"Public Sans",sans-serif;font-weight:400;
+  font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  margin-top:10px}
+.fineprint{margin:12px 0 0;font-size:12.5px;line-height:1.55;color:var(--muted);max-width:70ch}
+@media (max-width:620px){
+  .payoff{grid-template-columns:1fr;gap:16px}
+  .big{text-align:left}
+  .ovtrack{height:38px;padding:0 10px}
+  .ovmax{font-size:13px}
+}
 
 /* ── sections ── */
 section{padding-top:56px}
@@ -132,35 +145,39 @@ a:focus-visible{outline:2px solid var(--fast);outline-offset:3px}
 <p class="lede">Bell sells two different products in this city for exactly the same money.
 Here is what $85 a month buys, four kilometres apart.</p>
 
-<div class="proof">
-  <div class="line">
-    <div class="lhead">
-      <span class="who">A residential address<small>2.7 km from City Hall</small></span>
-      <span class="cost">$85 / mo</span>
-    </div>
-    <div class="bars">
-      <div class="bar slow"><span class="dir">down</span><span class="track"><i class="fill" style="width:1.67%"></i></span><span class="num">50 Mbps</span></div>
-      <div class="bar slow"><span class="dir">up</span><span class="track"><i class="fill" style="width:0.33%"></i></span><span class="num">10 Mbps</span></div>
-    </div>
-  </div>
-  <div class="line">
-    <div class="lhead">
-      <span class="who">19 Elmira Road<small>4.4 km from City Hall</small></span>
-      <span class="cost">$85 / mo</span>
-    </div>
-    <div class="bars">
-      <div class="bar"><span class="dir">down</span><span class="track"><i class="fill" style="width:100%"></i></span><span class="num">3,000 Mbps</span></div>
-      <div class="bar"><span class="dir">up</span><span class="track"><i class="fill" style="width:100%"></i></span><span class="num">3,000 Mbps</span></div>
-    </div>
-  </div>
-</div>
-<p class="scalenote">Bars to scale. Full width = 3,000 Mbps. Bell list price, same day, same two-year term.</p>
+<div class="deal">
+  <p class="dealtop">$85 a month buys either</p>
 
-<div class="punch">
-  <div><b>60&times;</b><span>the download speed</span></div>
-  <div><b>300&times;</b><span>the upload speed</span></div>
-  <div><b>$0</b><span>difference in price</span></div>
+  <div class="ov">
+    <div class="ovrow">
+      <p class="ovdir">Download</p>
+      <div class="ovtrack">
+        <i class="ovmine" style="width:1.667%"></i>
+        <b class="ovmax">3,000 Mbps</b>
+      </div>
+      <p class="ovmine-l"><span>50 Mbps</span> at a residential address 2.7&nbsp;km from City&nbsp;Hall</p>
+    </div>
+
+    <div class="ovrow">
+      <p class="ovdir">Upload</p>
+      <div class="ovtrack">
+        <i class="ovmine" style="width:0.333%"></i>
+        <b class="ovmax">3,000 Mbps</b>
+      </div>
+      <p class="ovmine-l"><span>10 Mbps</span> at the same address, for the same $85</p>
+    </div>
+    <p class="ovkey">Filled bar: 19 Elmira Road, 4.4&nbsp;km from City&nbsp;Hall. Drawn to scale.</p>
+  </div>
+
+  <div class="payoff">
+    <p class="pretext">Priced at the rate Bell charges 2.7&nbsp;km from City&nbsp;Hall,
+    the Elmira Road plan would cost</p>
+    <p class="big">$8,500<span>a month</span></p>
+  </div>
 </div>
+
+<p class="fineprint">Bell list price, both quoted the same day on the same two-year term.
+Sixty times the download, three hundred times the upload, no difference in price.</p>
 
 <section>
   <h2>Three questions for every candidate</h2>
