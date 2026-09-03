@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600&family=JetBrains+Mono:wght@700&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#f3f1ec}
+#m{position:absolute;inset:0}
+.leaflet-tile-pane{filter:grayscale(1) contrast(.85) brightness(1.06)}
+html.dark body{background:#242220}
+html.dark .leaflet-tile-pane{filter:grayscale(1) invert(1) contrast(.75) brightness(.7)}
+.leaflet-container{font-family:'Public Sans',system-ui,sans-serif}
+.lbl{background:transparent;border:0;box-shadow:none;font:700 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 6px #fff}
+html.dark .lbl{text-shadow:0 0 3px #242220,0 0 3px #242220,0 0 6px #242220}
+.lbl.slow{color:oklch(0.52 0.17 32)}.lbl.fast{color:oklch(0.5 0.11 225)}.lbl.ink{color:#3a3733}
+html.dark .lbl.slow{color:oklch(0.72 0.15 32)}html.dark .lbl.fast{color:oklch(0.74 0.1 225)}html.dark .lbl.ink{color:#ddd}
+.leaflet-control-attribution{font-size:10px;background:rgba(255,255,255,.7)}
+html.mini .leaflet-control-attribution{font-size:7px;padding:0 3px}
+html.mini .leaflet-control-attribution .leaflet-attribution-flag{display:none!important}
+html.mini .lbl{font-size:8px}
+html.dark .leaflet-control-attribution{background:rgba(36,34,32,.7);color:#aaa}
+html.dark .leaflet-control-attribution a{color:#ccc}
+</style>
+</head>
+<body>
+<div id="m"></div>
+<script>
+var q=new URLSearchParams(location.search);
+if(q.get('theme')==='dark')document.documentElement.classList.add('dark');
+var dark=document.documentElement.classList.contains('dark');
+var SLOW=dark?'oklch(0.72 0.15 32)':'oklch(0.52 0.17 32)',FAST=dark?'oklch(0.74 0.1 225)':'oklch(0.5 0.11 225)',INK=dark?'#ddd':'#3a3733';
+var hall=[43.5448,-80.2482],elmira=[43.5250,-80.2935],home=[43.5658,-80.2649];
+var mini=q.get('mini')==='1';
+var map=L.map('m',{zoomControl:false,scrollWheelZoom:false,dragging:false,touchZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,attributionControl:true});
+if(mini)document.documentElement.classList.add('mini');
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}).addTo(map);
+var ring=L.circle(home,{radius:450,color:SLOW,weight:1.5,dashArray:'4 4',fill:true,fillColor:SLOW,fillOpacity:.12,interactive:false}).addTo(map);
+L.polyline([hall,home],{color:SLOW,weight:2,dashArray:'2 6',interactive:false}).addTo(map);
+L.polyline([hall,elmira],{color:FAST,weight:2,dashArray:'2 6',interactive:false}).addTo(map);
+function dot(ll,c,r){return L.circleMarker(ll,{radius:r,color:'#fff',weight:2,fillColor:c,fillOpacity:1,interactive:false}).addTo(map)}
+dot(hall,INK,mini?3.5:6);dot(elmira,FAST,mini?4:7);
+function label(ll,cls,html,anchor){L.marker(ll,{icon:L.divIcon({className:'lbl '+cls,html:html,iconAnchor:anchor}),interactive:false}).addTo(map)}
+if(!mini){
+label(hall,'ink','CITY HALL',[-10,-6]);
+label(elmira,'fast','19 ELMIRA RD · 4.4 KM',[-10,-6]);
+label(home,'slow','RESIDENTIAL ADDRESS · ~2.7 KM',[-10,-6]);
+}else{
+label(hall,'ink','CITY HALL',[-6,-4]);
+label(elmira,'fast','4.4 KM',[-6,-4]);
+label(home,'slow','~2.7 KM',[-6,-4]);
+}
+map.fitBounds(L.latLngBounds([hall,elmira,home]).pad(.15),{padding:mini?[6,6]:[36,36]});
+</script>
+</body>
+</html>
