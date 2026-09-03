@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Newsreader", Georgia, serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --color-paper: #f5f7f6;
+  --color-paper-dark: #0b0f10;
+  --color-card: #ffffff;
+  --color-card-dark: #141a1b;
+  --color-ink: #101416;
+  --color-ink-dark: #e9efed;
+  --color-dim: #5b666b;
+  --color-dim-dark: #8d999c;
+  --color-edge: #d8dedc;
+  --color-edge-dark: #232b2d;
+  --color-hair: #e8ecea;
+  --color-hair-dark: #1a2122;
+  --color-fast: #0c6a68;
+  --color-fast-dark: #35a89c;
+  --color-slow: #b0442a;
+  --color-slow-dark: #d9704b;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink dark:bg-paper-dark dark:text-ink-dark antialiased; }
+  ::selection { @apply bg-fast/20 dark:bg-fast-dark/25; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-fast dark:outline-fast-dark; }
+}
