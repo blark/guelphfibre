@@ -95,6 +95,20 @@ h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin:0 0 20px}
 p{margin:0 0 14px;max-width:62ch}
 
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0;
+  border-top:1px solid var(--rule)}
+.tl li{display:grid;grid-template-columns:96px 1fr;gap:20px;
+  padding:16px 0;border-bottom:1px solid var(--hair)}
+.tl li:last-child{border-bottom:1px solid var(--rule)}
+.tl .when{margin:0;font-family:"JetBrains Mono",monospace;font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.tl li.now .when{color:var(--slow);font-weight:700}
+.tl p{margin:0;font-size:15px;line-height:1.55;max-width:64ch}
+.tl b{font-weight:700}
+@media (max-width:560px){
+  .tl li{grid-template-columns:1fr;gap:5px}
+  .tl .when{padding-top:0}
+}
 .qs{list-style:none;counter-reset:q;padding:0;margin:0;
   display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
 .qs li{counter-increment:q;background:var(--paper);padding:18px 20px;
@@ -178,6 +192,48 @@ Here is what $85 a month buys, four kilometres apart.</p>
 
 <p class="fineprint">Bell list price, both quoted the same day on the same two-year term.
 Sixty times the download, three hundred times the upload, no difference in price.</p>
+
+<section>
+  <h2>How Guelph got here</h2>
+  <ol class="tl">
+    <li>
+      <p class="when">Apr 2022</p>
+      <div><p><b>Bell promises fibre to 44,000 Guelph homes and businesses &ldquo;by 2024&rdquo;</b>,
+      describing the build as &ldquo;fully funded by Bell.&rdquo; Mayor Cam Guthrie, quoted in the
+      release: &ldquo;This is great news for Guelph.&rdquo;
+      <a href="https://web.archive.org/web/20250722064053/https://bce.ca/news-and-media/releases/show/Bell-expands-pure-fibre-Internet-access-to-Guelph">Announcement</a></p></div>
+    </li>
+    <li>
+      <p class="when">Nov 2023</p>
+      <div><p>The CRTC opens Bell&rsquo;s fibre to competitors. Bell cuts more than $1&nbsp;billion
+      from its build within days: &ldquo;Rolling back fibre network expansion is a direct result
+      of the CRTC&rsquo;s decision,&rdquo; and it will &ldquo;re-consider pending builds in all
+      communities where it had planned to expand.&rdquo;
+      <a href="https://www.newswire.ca/news-releases/bell-to-cut-capital-expenditures-and-reduce-high-speed-fibre-internet-expansion-due-to-crtc-decision-that-discourages-network-investment-871608765.html">Bell&rsquo;s statement</a></p></div>
+    </li>
+    <li>
+      <p class="when">2024</p>
+      <div><p>The promised completion year passes. Parts of Guelph have fibre. Others still don&rsquo;t.</p></div>
+    </li>
+    <li>
+      <p class="when">Jun 2025</p>
+      <div><p>Bell confirms the cuts total <b>more than $1.2&nbsp;billion</b>, &ldquo;affecting more
+      than 1 million homes and businesses in more than 150 communities.&rdquo; It does not say which.
+      <a href="https://www.newswire.ca/news-releases/bell-canada-urges-federal-government-to-overturn-crtc-decision-stalling-critical-investment-879668676.html">Bell&rsquo;s statement</a></p></div>
+    </li>
+    <li>
+      <p class="when">Aug 2025</p>
+      <div><p>The federal cabinet declines to overturn the CRTC. Bell says its fibre footprint
+      will plateau. It has not returned to Guelph.</p></div>
+    </li>
+    <li class="now">
+      <p class="when">Today</p>
+      <div><p>The City charges nothing for the public rights of way Bell digs up, and owns fibre
+      of its own. Guelph Police already run a private network on the City&rsquo;s dark fibre.
+      Council has never discussed any of it.</p></div>
+    </li>
+  </ol>
+</section>
 
 <section>
   <h2>Three questions for every candidate</h2>
