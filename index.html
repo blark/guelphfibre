@@ -3,96 +3,231 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Guelph's two-tier internet — candidate scorecard</title>
+<title>Guelph's two-tier internet</title>
 <meta name="description" content="Three questions put to every 2026 Guelph mayoral and Ward 2 council candidate about internet service, and the answers received.">
+<script>
+  try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 :root{
-  --paper:#fbfbf9; --ink:#16191d; --muted:#5d6570; --rule:#dfe1e4;
-  --card:#fff; --yes:#1f6f43; --no:#8a3324; --pending:#8a8f96;
-  --accent:#0b4f6c;
+  --paper:#f6f8f7; --surface:#ffffff; --ink:#14181a; --muted:#5a6470;
+  --rule:#dde2e0; --rule-soft:#eaeeec;
+  --signal:#0d6e6e; --signal-dim:#0d6e6e26;
+  --flag:#a4442e; --flag-dim:#a4442e1f;
+  --shadow:0 1px 2px #14181a0d;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme=light]){
-    --paper:#0f1215; --ink:#e8eaed; --muted:#9aa2ad; --rule:#272c33;
-    --card:#161a1f; --yes:#6fc08d; --no:#e08a73; --pending:#767d86;
-    --accent:#6bb3cc;
+  :root:not([data-theme="light"]){
+    --paper:#0d1113; --surface:#151a1d; --ink:#e6ebe9; --muted:#8f9a9c;
+    --rule:#242c2f; --rule-soft:#1b2124;
+    --signal:#4fb3ad; --signal-dim:#4fb3ad2b;
+    --flag:#dd8a70; --flag-dim:#dd8a7024;
+    --shadow:0 1px 2px #0006;
   }
 }
+:root[data-theme="dark"]{
+  --paper:#0d1113; --surface:#151a1d; --ink:#e6ebe9; --muted:#8f9a9c;
+  --rule:#242c2f; --rule-soft:#1b2124;
+  --signal:#4fb3ad; --signal-dim:#4fb3ad2b;
+  --flag:#dd8a70; --flag-dim:#dd8a7024;
+  --shadow:0 1px 2px #0006;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.wrap{max-width:940px;margin:0 auto;padding:0 20px 80px}
-header{padding:56px 0 28px;border-bottom:2px solid var(--ink)}
-h1{font-size:clamp(28px,4.6vw,42px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
-.sub{font-size:19px;color:var(--muted);margin:0;max-width:60ch}
-.updated{margin-top:20px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-  margin:52px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
-p{max-width:68ch}
-a{color:var(--accent)}
-.q{counter-reset:q;list-style:none;padding:0;margin:0}
-.q li{counter-increment:q;display:flex;gap:14px;margin-bottom:14px}
-.q li::before{content:counter(q);flex:none;width:26px;height:26px;border-radius:3px;
-  background:var(--card);border:1px solid var(--rule);display:flex;align-items:center;
-  justify-content:center;font-size:13px;font-weight:600;color:var(--accent)}
-.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--card)}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
-th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
-thead th{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
-  border-bottom:1px solid var(--rule);white-space:nowrap}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16.5px/1.65 "Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px 96px}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* masthead */
+header{padding:60px 0 30px;border-bottom:2px solid var(--ink);position:relative}
+.eyebrow{
+  font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--signal);margin:0 0 18px;
+}
+h1{
+  font-family:"Newsreader",Georgia,serif;font-weight:500;
+  font-size:clamp(34px,6vw,54px);line-height:1.04;letter-spacing:-.02em;
+  margin:0 0 16px;text-wrap:balance;
+}
+.standfirst{font-size:19px;line-height:1.55;color:var(--muted);margin:0;max-width:58ch}
+.stamp{
+  margin-top:24px;font-family:"JetBrains Mono",monospace;font-size:11.5px;
+  color:var(--muted);font-variant-numeric:tabular-nums;
+}
+#theme{
+  position:absolute;top:60px;right:0;background:none;border:1px solid var(--rule);
+  color:var(--muted);border-radius:3px;padding:5px 10px;cursor:pointer;
+  font:600 11px/1 "Public Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;
+}
+#theme:hover{color:var(--ink);border-color:var(--muted)}
+#theme:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+section{padding-top:54px}
+h2{
+  font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--rule);
+}
+p{margin:0 0 15px;max-width:66ch}
+a{color:var(--signal);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+/* to-scale comparison: the one bold element */
+.scale{display:flex;flex-direction:column;gap:22px;margin:26px 0 20px}
+.row{display:grid;grid-template-columns:1fr;gap:7px}
+.rowhead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.where{font-size:14.5px;font-weight:600}
+.where small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:1px}
+.price{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);white-space:nowrap}
+.track{display:grid;grid-template-columns:1fr;gap:5px}
+.bar{display:flex;align-items:center;gap:9px}
+.bar .lbl{
+  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
+  width:34px;flex:none;text-align:right;
+}
+.bar .fill{height:15px;border-radius:2px;min-width:3px;background:var(--signal)}
+.bar.short .fill{background:var(--flag)}
+.bar .val{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums}
+.bar.short .val{color:var(--flag);font-weight:600}
+.axis{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);
+  border-top:1px solid var(--rule-soft);padding-top:6px;margin-top:2px;
+}
+.readout{
+  display:flex;gap:26px;flex-wrap:wrap;margin-top:6px;padding:14px 16px;
+  background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout b{font-family:"Newsreader",serif;font-size:26px;font-weight:600;line-height:1;color:var(--flag)}
+.readout span{font-size:12px;color:var(--muted)}
+
+/* questions */
+ol.q{counter-reset:q;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px}
+ol.q li{counter-increment:q;display:flex;gap:14px}
+ol.q li::before{
+  content:counter(q);flex:none;width:24px;height:24px;margin-top:2px;
+  font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;color:var(--signal);
+  background:var(--signal-dim);border-radius:2px;display:flex;align-items:center;justify-content:center;
+}
+ol.q p{margin:0}
+
+/* scorecard */
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:15px}
+th,td{padding:11px 15px;text-align:left;border-bottom:1px solid var(--rule-soft)}
+thead th{
+  font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--rule);white-space:nowrap;
+}
 tbody tr:last-child td{border-bottom:none}
-td.date{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);font-size:14px}
-.pill{display:inline-block;padding:2px 9px;border-radius:11px;font-size:12px;font-weight:600;
-  border:1px solid currentColor}
-.pill.yes{color:var(--yes)} .pill.no{color:var(--no)} .pill.pending{color:var(--pending)}
-.note{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:18px 20px;font-size:15px}
-.note p{margin:0 0 10px} .note p:last-child{margin:0}
-figure{margin:22px 0;padding:0}
-figcaption{font-size:13px;color:var(--muted);margin-top:8px}
-.cmp{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:20px 0}
-.cmp div{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:16px}
-.cmp .addr{font-size:13px;color:var(--muted);margin-bottom:6px}
-.cmp .spd{font-size:26px;font-weight:700;letter-spacing:-.02em}
-.cmp .prc{font-size:14px;color:var(--muted);margin-top:4px}
-footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
-  font-size:14px;color:var(--muted)}
+td.name{font-weight:500}
+td.date{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);white-space:nowrap}
+.pill{
+  display:inline-block;padding:2px 9px;border-radius:10px;font-size:11.5px;font-weight:600;
+  letter-spacing:.03em;background:var(--rule-soft);color:var(--muted);
+}
+.pill.yes{background:var(--signal-dim);color:var(--signal)}
+.pill.no{background:var(--flag-dim);color:var(--flag)}
+
+
+.shots{display:flex;flex-direction:column;gap:26px;margin:24px 0 20px}
+figure{margin:0}
+figure img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);
+  border-radius:3px;background:var(--surface);box-shadow:var(--shadow);
+}
+figcaption{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:9px;max-width:64ch}
+.note{
+  background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  padding:20px 22px;box-shadow:var(--shadow);
+}
+.note p{font-size:15px}
+.note p:last-child{margin:0}
+
+footer{margin-top:58px;padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted)}
+footer p{margin:0}
+@media (max-width:560px){
+  #theme{position:static;margin-bottom:20px}
+  header{padding-top:36px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
+  <button id="theme" type="button">Theme</button>
+  <p class="eyebrow">Municipal election · 26 October 2026</p>
   <h1>Guelph's two-tier internet</h1>
-  <p class="sub">Three questions put to every candidate for Mayor and Ward&nbsp;2 Council
-  in the 26&nbsp;October 2026 municipal election. Answers are published verbatim.</p>
-  <p class="updated">Last updated 3 September 2026</p>
+  <p class="standfirst">Three questions put to every candidate for Mayor and Ward&nbsp;2 Council.
+  Answers published verbatim, as they arrive.</p>
+  <p class="stamp">Updated 3 September 2026</p>
 </header>
 
 <section>
-  <h2>Why</h2>
-  <p>Bell sells two different products in Guelph at the same list price. These
-  quotes were taken from bell.ca on the same day, on the same two-year term.</p>
+  <h2>The same price, two products</h2>
+  <p>Both quotes taken from bell.ca on the same day, on the same two-year term,
+  at Bell's list price before promotional credits.</p>
 
-  <div class="cmp">
-    <div>
-      <div class="addr">A residential address 2.7 km from City Hall</div>
-      <div class="spd">50 / 10 Mbps</div>
-      <div class="prc">$85/month list</div>
+  <div class="scale">
+    <div class="row">
+      <div class="rowhead">
+        <span class="where">A residential address<small>2.7 km from City Hall</small></span>
+        <span class="price">$85 / month</span>
+      </div>
+      <div class="track">
+        <div class="bar short"><span class="lbl">down</span><span class="fill" style="width:1.67%"></span><span class="val">50 Mbps</span></div>
+        <div class="bar short"><span class="lbl">up</span><span class="fill" style="width:0.33%"></span><span class="val">10 Mbps</span></div>
+      </div>
     </div>
-    <div>
-      <div class="addr">19 Elmira Road · 4.4 km from City Hall</div>
-      <div class="spd">3,000 / 3,000 Mbps</div>
-      <div class="prc">$85/month list</div>
+    <div class="row">
+      <div class="rowhead">
+        <span class="where">19 Elmira Road<small>4.4 km from City Hall</small></span>
+        <span class="price">$85 / month</span>
+      </div>
+      <div class="track">
+        <div class="bar"><span class="lbl">down</span><span class="fill" style="width:100%"></span><span class="val">3,000 Mbps</span></div>
+        <div class="bar"><span class="lbl">up</span><span class="fill" style="width:100%"></span><span class="val">3,000 Mbps</span></div>
+      </div>
+      <p class="axis">Bars drawn to scale. Full width = 3,000 Mbps.</p>
     </div>
   </div>
 
-  <p>Sixty times the download speed and three hundred times the upload speed,
-  for the same money. The slower address is the one closer to downtown.</p>
+  <div class="readout">
+    <div><b>60&times;</b><span>the download speed</span></div>
+    <div><b>300&times;</b><span>the upload speed</span></div>
+    <div><b>$0</b><span>difference in list price</span></div>
+  </div>
 
-  <p>Bell announced fibre for 44,000 Guelph homes in April 2022. After the CRTC
-  ordered it to sell competitors access to that fibre at a regulated price, Bell
-  cut more than $1.2&nbsp;billion from its buildout and stopped. Parts of Guelph
-  were finished. Others were not.</p>
+  <p style="margin-top:22px">Bell announced fibre for 44,000 Guelph homes in April 2022.
+  After the CRTC ordered it to sell competitors access to that fibre at a regulated
+  price, Bell cut more than $1.2&nbsp;billion from its buildout and stopped. Parts of
+  Guelph were finished. Others were not. The slower address above is the one closer
+  to downtown.</p>
+</section>
+
+<section>
+  <h2>The quotes</h2>
+  <div class="shots">
+    <figure>
+      <img src="img/quote-residential.png" alt="Bell.ca plan selection for a residential address 2.7 km from Guelph City Hall, showing a maximum of 50 Mbps down and 10 Mbps up at $85 per month list price." loading="lazy" width="1000" height="799">
+      <figcaption>A residential address, 2.7&nbsp;km from City Hall. Three plans offered, none above 50&nbsp;Mbps down and 10&nbsp;up. Street number redacted.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/quote-elmira.png" alt="Bell.ca plan selection for 19 Elmira Road, Guelph, showing plans up to 3,000 Mbps down and 3,000 Mbps up, with Gigabit Fibe 3.0 at $85 per month list price." loading="lazy" width="1000" height="900">
+      <figcaption>19 Elmira Road, 4.4&nbsp;km from City Hall. Five plans offered, up to 3,000&nbsp;Mbps symmetric.</figcaption>
+    </figure>
+  </div>
+  <p>In both, the headline figure is a two-year promotional rate. Bell's list
+  price is the smaller line at the foot of each card: <span class="mono">Price
+  without limited-time credits: $85/mo.</span></p>
 </section>
 
 <section>
@@ -114,12 +249,12 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
   <table>
     <thead><tr><th>Candidate</th><th>Contacted</th><th>Replied</th><th>Answer</th></tr></thead>
     <tbody>
-      <tr><td>Leanne Caron</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
-      <tr><td>Ken Yee Chew</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
-      <tr><td>John Edward Krusky</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
-      <tr><td>Ryan Meunier</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
-      <tr><td>Evaristo Ramos Jr.</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
-      <tr><td>Rajee Sinha</td><td class="date">3 Sep 2026</td><td><span class="pill pending">awaiting</span></td><td>—</td></tr>
+      <tr><td class="name">Leanne Caron</td><td class="date">3 Sep 2026</td><td><span class="pill">awaiting</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Ken Yee Chew</td><td class="date">3 Sep 2026</td><td><span class="pill">awaiting</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">John Edward Krusky</td><td class="date">3 Sep 2026</td><td><span class="pill">awaiting</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Ryan Meunier</td><td class="date">3 Sep 2026</td><td><span class="pill">awaiting</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Evaristo Ramos Jr.</td><td class="date">3 Sep 2026</td><td><span class="pill">awaiting</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Rajee Sinha</td><td class="date">3 Sep 2026</td><td><span class="pill">awaiting</span></td><td>&mdash;</td></tr>
     </tbody>
   </table>
   </div>
@@ -131,32 +266,29 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
   <table>
     <thead><tr><th>Candidate</th><th>Contacted</th><th>Replied</th><th>Answer</th></tr></thead>
     <tbody>
-      <tr><td>Michael Barber</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Michelle Bowman</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Troy Bridgeman</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Greg Cox</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Morgan Dandie</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Kim Fry</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Rodrigo Goller</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Alec Purves</td><td class="date">not yet</td><td><span class="pill pending">—</span></td><td>—</td></tr>
-      <tr><td>Barbara Mann</td><td class="date">no contact published</td><td><span class="pill pending">—</span></td><td>—</td></tr>
+      <tr><td class="name">Michael Barber</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Michelle Bowman</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Troy Bridgeman</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Greg Cox</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Morgan Dandie</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Kim Fry</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Rodrigo Goller</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Barbara Mann</td><td class="date">no contact published</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
+      <tr><td class="name">Alec Purves</td><td class="date">not yet</td><td><span class="pill">&mdash;</span></td><td>&mdash;</td></tr>
     </tbody>
   </table>
   </div>
-  <p style="font-size:14px;color:var(--muted);margin-top:12px">Carly Klassen withdrew
-  after filing and is not listed. Barbara Mann has no contact information published on
-  the City's certified candidate list and could not be reached.</p>
 </section>
 
 <section>
   <h2>Method</h2>
   <div class="note">
     <p>Every candidate is emailed the same three questions in the same words.
-    Answers are reproduced verbatim, in full, without editing or commentary.
+    Answers are reproduced verbatim and in full, without editing or commentary.
     Candidates who do not reply are recorded as not having replied.</p>
-    <p>This page is maintained in a public git repository. Each answer is
-    committed on the day it arrives, so the history shows when every entry was
-    added and that nothing was revised afterwards.</p>
+    <p>This page is kept in a public git repository. Each answer is committed on
+    the day it arrives, so the history shows when every entry was added and that
+    nothing was revised afterwards.</p>
     <p>If you are a candidate and your answer is recorded incorrectly, or you
     replied and are shown as not having replied, <a id="c" href="#">get in touch</a>
     and it will be corrected.</p>
@@ -164,18 +296,32 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
 </section>
 
 <footer>
-  <p>Maintained by Mark Baseggio, a resident of Ward 2, Guelph.
-  Source and full history: <a href="https://github.com/blark/guelphfibre">github.com/blark/guelphfibre</a></p>
+  <p>Maintained by Mark Baseggio, a resident of Ward&nbsp;2, Guelph.
+  Source and full history at <a href="https://github.com/blark/guelphfibre">github.com/blark/guelphfibre</a></p>
 </footer>
 
 </div>
 <script>
 (function(){
-  var a=document.getElementById('c'); if(!a) return;
-  var u=['bWFyaw==','YmFzZWdnaW8=','Y2E='].map(atob);
-  var e=u[0]+String.fromCharCode(64)+u[1]+'.'+u[2];
-  a.href='mailto:'+e+'?subject='+encodeURIComponent('guelphfibre.ca correction');
-  a.textContent=e;
+  var r=document.documentElement,b=document.getElementById('theme');
+  function cur(){return r.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}
+  function paint(){b.textContent=cur()==='dark'?'Light':'Dark'}
+  b.addEventListener('click',function(){
+    var next=cur()==='dark'?'light':'dark';
+    r.dataset.theme=next;
+    try{localStorage.setItem('theme',next)}catch(e){}
+    paint();
+  });
+  matchMedia('(prefers-color-scheme:dark)').addEventListener('change',paint);
+  paint();
+
+  var a=document.getElementById('c');
+  if(a){
+    var u=['bWFyaw==','YmFzZWdnaW8=','Y2E='].map(atob);
+    var e=u[0]+String.fromCharCode(64)+u[1]+'.'+u[2];
+    a.href='mailto:'+e+'?subject='+encodeURIComponent('guelphfibre.ca correction');
+    a.textContent=e;
+  }
 })();
 </script>
 </body>
