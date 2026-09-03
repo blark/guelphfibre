@@ -52,9 +52,12 @@ h1 em{font-style:normal;color:var(--slow)}
 
 /* ── the deal ── */
 .deal{margin:44px 0 0;border:1px solid var(--rule);background:var(--surface)}
-.dealtop{margin:0;padding:14px 22px;border-bottom:1px solid var(--rule);
-  font:700 11px/1 "Public Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);max-width:none}
+.dealtop{margin:0;padding:20px 22px 18px;border-bottom:1px solid var(--rule);
+  max-width:none;display:flex;align-items:baseline;gap:.4em;flex-wrap:wrap}
+.dealtop b{font-family:"Newsreader",Georgia,serif;font-weight:700;
+  font-size:clamp(28px,4.6vw,38px);line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.dealtop span{font-family:"Newsreader",Georgia,serif;font-weight:400;
+  font-size:clamp(20px,3.2vw,26px);line-height:1;color:var(--muted)}
 .ov{padding:26px 22px 22px;display:grid;gap:26px}
 .ovrow{display:grid;gap:7px}
 .ovdir{margin:0;font-family:"JetBrains Mono",monospace;font-size:10.5px;
@@ -160,7 +163,7 @@ a:focus-visible{outline:2px solid var(--fast);outline-offset:3px}
 Here is what $85 a month buys, four kilometres apart.</p>
 
 <div class="deal">
-  <p class="dealtop">$85 a month buys either</p>
+  <p class="dealtop"><b>$85 a month</b> <span>buys either</span></p>
 
   <div class="ov">
     <div class="ovrow">
