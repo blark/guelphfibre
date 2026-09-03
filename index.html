@@ -26,10 +26,10 @@ if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.
   <h1 class="mt-7 font-display text-[clamp(2.6rem,9vw,5.4rem)] font-bold leading-[.98] tracking-[-.035em] text-balance">
     Same price.<br><span class="text-slow dark:text-slow-dark">One percent</span> of the internet.
   </h1>
-  <p class="mt-5 max-w-[46ch] text-lg leading-snug text-dim dark:text-dim-dark">
-    Bell sells two different products in this city for exactly the same money.
-    Here is what $85 a month buys, four kilometres apart.
-  </p>
+  <div class="prose prose-lg prose-page dark:prose-invert mt-5 max-w-[48ch]">
+    <p class="!text-dim dark:!text-dim-dark">Bell sells two different products in this city for
+    exactly the same money. Here is what $85 a month buys, four kilometres apart.</p>
+  </div>
 
   <!-- comparison -->
   <div class="mt-11 border border-edge bg-card dark:border-edge-dark dark:bg-card-dark">
@@ -52,48 +52,42 @@ if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.
         </span>
       </div>
 
-      <div class="space-y-9">
+      <div class="space-y-4">
         <div>
           <p class="m-0 mb-2 font-mono text-[10px] uppercase tracking-[.14em] text-dim dark:text-dim-dark">Download</p>
 
-          <div class="flex justify-end pr-1.5">
-            <div class="text-right">
+          <div class="relative flex justify-end pr-px">
+            <div class="flex flex-col items-end">
               <p class="m-0 mb-1 font-mono text-[12.5px] font-bold text-fast dark:text-fast-dark">3,000 Mbps</p>
-              <div class="ml-auto h-3 w-px bg-fast/70 dark:bg-fast-dark/70"></div>
+              <span class="h-3 w-px bg-fast/60 dark:bg-fast-dark/60"></span>
             </div>
           </div>
 
-          <div class="relative h-7 w-full overflow-hidden rounded-[3px] bg-fast dark:bg-fast-dark">
-            <div class="absolute inset-y-0 left-0 min-w-[5px] bg-slow shadow-[3px_0_0_var(--color-card)] dark:bg-slow-dark dark:shadow-[3px_0_0_var(--color-card-dark)]" style="width:1.667%"></div>
-          </div>
-
-          <div class="flex pl-1.5">
-            <div>
-              <div class="h-3 w-px bg-slow/70 dark:bg-slow-dark/70"></div>
-              <p class="m-0 mt-1 font-mono text-[12.5px] font-bold text-slow dark:text-slow-dark">50 Mbps</p>
+          <div class="relative h-7 w-full rounded-[3px] bg-fast dark:bg-fast-dark">
+            <div class="absolute inset-y-0 left-0 min-w-[5px] rounded-l-[3px] bg-slow shadow-[3px_0_0_var(--color-card)] dark:bg-slow-dark dark:shadow-[3px_0_0_var(--color-card-dark)]" style="width:1.667%">
+              <span class="absolute left-1/2 top-full h-3 w-px -translate-x-1/2 bg-slow/60 dark:bg-slow-dark/60"></span>
+              <p class="absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap font-mono text-[12.5px] font-bold text-slow dark:text-slow-dark">50 Mbps</p>
             </div>
           </div>
+          <div class="h-9"></div>
         </div>
         <div>
           <p class="m-0 mb-2 font-mono text-[10px] uppercase tracking-[.14em] text-dim dark:text-dim-dark">Upload</p>
 
-          <div class="flex justify-end pr-1.5">
-            <div class="text-right">
+          <div class="relative flex justify-end pr-px">
+            <div class="flex flex-col items-end">
               <p class="m-0 mb-1 font-mono text-[12.5px] font-bold text-fast dark:text-fast-dark">3,000 Mbps</p>
-              <div class="ml-auto h-3 w-px bg-fast/70 dark:bg-fast-dark/70"></div>
+              <span class="h-3 w-px bg-fast/60 dark:bg-fast-dark/60"></span>
             </div>
           </div>
 
-          <div class="relative h-7 w-full overflow-hidden rounded-[3px] bg-fast dark:bg-fast-dark">
-            <div class="absolute inset-y-0 left-0 min-w-[5px] bg-slow shadow-[3px_0_0_var(--color-card)] dark:bg-slow-dark dark:shadow-[3px_0_0_var(--color-card-dark)]" style="width:0.333%"></div>
-          </div>
-
-          <div class="flex pl-1.5">
-            <div>
-              <div class="h-3 w-px bg-slow/70 dark:bg-slow-dark/70"></div>
-              <p class="m-0 mt-1 font-mono text-[12.5px] font-bold text-slow dark:text-slow-dark">10 Mbps</p>
+          <div class="relative h-7 w-full rounded-[3px] bg-fast dark:bg-fast-dark">
+            <div class="absolute inset-y-0 left-0 min-w-[5px] rounded-l-[3px] bg-slow shadow-[3px_0_0_var(--color-card)] dark:bg-slow-dark dark:shadow-[3px_0_0_var(--color-card-dark)]" style="width:0.333%">
+              <span class="absolute left-1/2 top-full h-3 w-px -translate-x-1/2 bg-slow/60 dark:bg-slow-dark/60"></span>
+              <p class="absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap font-mono text-[12.5px] font-bold text-slow dark:text-slow-dark">10 Mbps</p>
             </div>
           </div>
+          <div class="h-9"></div>
         </div>
       </div>
 
@@ -104,44 +98,44 @@ if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.
       <p class="m-0 flex flex-wrap items-baseline gap-x-2.5 font-display text-[clamp(3rem,10vw,5.25rem)] font-bold leading-none tracking-[-.04em] text-slow dark:text-slow-dark">
         $8,500<span class="font-sans text-[15px] font-normal tracking-normal text-dim dark:text-dim-dark">a month</span>
       </p>
-      <p class="m-0 mt-4 max-w-[44ch] text-[15px] leading-snug text-dim dark:text-dim-dark">
-        What the Elmira Road plan would cost, priced at the rate Bell charges
-        2.7&nbsp;km from City&nbsp;Hall.
-      </p>
+      <div class="prose prose-page dark:prose-invert mt-4 max-w-[46ch]">
+        <p class="!text-dim dark:!text-dim-dark">What the Elmira Road plan would cost, priced at
+        the rate Bell charges 2.7&nbsp;km from City&nbsp;Hall.</p>
+      </div>
     </div>
   </div>
-  <p class="mt-3 max-w-[70ch] text-[12.5px] leading-snug text-dim dark:text-dim-dark">
-    Bell list price, both quoted the same day on the same two-year term.
-    Sixty times the download, three hundred times the upload, no difference in price.
-  </p>
+  <div class="prose prose-sm prose-page dark:prose-invert mt-3 max-w-[72ch]">
+    <p class="!text-dim dark:!text-dim-dark">Bell list price, both quoted the same day on the same
+    two-year term. Sixty times the download, three hundred times the upload, no difference in price.</p>
+  </div>
 
   <!-- history -->
   <section class="pt-14">
     <h2 class="m-0 mb-5 text-[11px] font-bold uppercase tracking-[.16em] text-dim dark:text-dim-dark">How Guelph got here</h2>
-    <p class="mb-6 max-w-[60ch] text-base leading-snug">
-      Bell was never asked to give anything away. It was told to sell competitors access to its
-      fibre at a regulated price, for which it would be paid. It chose to stop building instead.
-    </p>
+    <div class="prose prose-page dark:prose-invert mb-7 max-w-[62ch]">
+      <p>Bell was never asked to give anything away. It was told to sell competitors access to its
+      fibre at a regulated price, for which it would be paid. It chose to stop building instead.</p>
+    </div>
     <ol class="m-0 list-none border-t border-edge p-0 dark:border-edge-dark">
       <li class="grid grid-cols-1 gap-x-5 gap-y-1 border-b border-hair py-4 sm:grid-cols-[6rem_1fr] dark:border-hair-dark">
         <p class="m-0 pt-0.5 font-mono text-[11.5px] uppercase tracking-wider text-dim dark:text-dim-dark">Apr 2022</p>
-        <p class="m-0 max-w-[64ch] text-[15px] leading-snug"><b class="font-bold">Bell promises fibre to 44,000 Guelph homes “by 2024”</b>, “fully funded by Bell.” The Mayor calls it “great news for Guelph.” <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://web.archive.org/web/20250722064053/https://bce.ca/news-and-media/releases/show/Bell-expands-pure-fibre-Internet-access-to-Guelph">Announcement</a></p>
+        <div class="prose prose-sm prose-page dark:prose-invert max-w-[64ch]"><p><b class="font-bold">Bell promises fibre to 44,000 Guelph homes “by 2024”</b>, “fully funded by Bell.” The Mayor calls it “great news for Guelph.” <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://web.archive.org/web/20250722064053/https://bce.ca/news-and-media/releases/show/Bell-expands-pure-fibre-Internet-access-to-Guelph">Announcement</a></p></div>
       </li>
       <li class="grid grid-cols-1 gap-x-5 gap-y-1 border-b border-hair py-4 sm:grid-cols-[6rem_1fr] dark:border-hair-dark">
         <p class="m-0 pt-0.5 font-mono text-[11.5px] uppercase tracking-wider text-dim dark:text-dim-dark">Nov 2023</p>
-        <p class="m-0 max-w-[64ch] text-[15px] leading-snug">The CRTC rules that Bell must sell competitors access to its fibre, at a regulated price. <b class="font-bold">Bell responds by cutting $1 billion from its own build</b> and warning it will “re-consider pending builds in all communities where it had planned to expand.” <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://www.newswire.ca/news-releases/bell-to-cut-capital-expenditures-and-reduce-high-speed-fibre-internet-expansion-due-to-crtc-decision-that-discourages-network-investment-871608765.html">Bell’s statement</a></p>
+        <div class="prose prose-sm prose-page dark:prose-invert max-w-[64ch]"><p>The CRTC rules that Bell must sell competitors access to its fibre, at a regulated price. <b class="font-bold">Bell responds by cutting $1 billion from its own build</b> and warning it will “re-consider pending builds in all communities where it had planned to expand.” <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://www.newswire.ca/news-releases/bell-to-cut-capital-expenditures-and-reduce-high-speed-fibre-internet-expansion-due-to-crtc-decision-that-discourages-network-investment-871608765.html">Bell’s statement</a></p></div>
       </li>
       <li class="grid grid-cols-1 gap-x-5 gap-y-1 border-b border-hair py-4 sm:grid-cols-[6rem_1fr] dark:border-hair-dark">
         <p class="m-0 pt-0.5 font-mono text-[11.5px] uppercase tracking-wider text-dim dark:text-dim-dark">2024</p>
-        <p class="m-0 max-w-[64ch] text-[15px] leading-snug">Bell’s own deadline passes. Some Guelph streets have fibre. Others don’t.</p>
+        <div class="prose prose-sm prose-page dark:prose-invert max-w-[64ch]"><p>Bell’s own deadline passes. Some Guelph streets have fibre. Others don’t.</p></div>
       </li>
       <li class="grid grid-cols-1 gap-x-5 gap-y-1 border-b border-hair py-4 sm:grid-cols-[6rem_1fr] dark:border-hair-dark">
         <p class="m-0 pt-0.5 font-mono text-[11.5px] uppercase tracking-wider text-dim dark:text-dim-dark">Jun 2025</p>
-        <p class="m-0 max-w-[64ch] text-[15px] leading-snug">Bell’s cuts reach <b class="font-bold">$1.2 billion</b>, by its own count affecting “more than 1 million homes and businesses in more than 150 communities.” It will not say which. <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://www.newswire.ca/news-releases/bell-canada-urges-federal-government-to-overturn-crtc-decision-stalling-critical-investment-879668676.html">Bell’s statement</a></p>
+        <div class="prose prose-sm prose-page dark:prose-invert max-w-[64ch]"><p>Bell’s cuts reach <b class="font-bold">$1.2 billion</b>, by its own count affecting “more than 1 million homes and businesses in more than 150 communities.” It will not say which. <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://www.newswire.ca/news-releases/bell-canada-urges-federal-government-to-overturn-crtc-decision-stalling-critical-investment-879668676.html">Bell’s statement</a></p></div>
       </li>
       <li class="grid grid-cols-1 gap-x-5 gap-y-1 border-b border-edge py-4 sm:grid-cols-[6rem_1fr] dark:border-edge-dark">
         <p class="m-0 pt-0.5 font-mono text-[11.5px] font-bold uppercase tracking-wider text-slow dark:text-slow-dark">Aug 2025</p>
-        <p class="m-0 max-w-[64ch] text-[15px] leading-snug">Ottawa reviews the ruling and lets it stand. Bell has not come back.</p>
+        <div class="prose prose-sm prose-page dark:prose-invert max-w-[64ch]"><p>Ottawa reviews the ruling and lets it stand. Bell has not come back.</p></div>
       </li>
     </ol>
   </section>
@@ -152,15 +146,15 @@ if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.
     <ol class="m-0 grid list-none gap-px border border-edge bg-edge p-0 dark:border-edge-dark dark:bg-edge-dark">
       <li class="grid grid-cols-[1.6rem_1fr] items-start gap-3.5 bg-paper px-5 py-4 dark:bg-paper-dark">
         <span class="font-mono text-[13px] font-bold leading-relaxed text-fast dark:text-fast-dark">1</span>
-        <p class="m-0 text-[15.5px] leading-snug">Will you fund a dig-once policy, so City conduit goes into the ground whenever a street is rebuilt, and is offered to any carrier?</p>
+        <div class="prose prose-page dark:prose-invert max-w-none"><p>Will you fund a dig-once policy, so City conduit goes into the ground whenever a street is rebuilt, and is offered to any carrier?</p></div>
       </li>
       <li class="grid grid-cols-[1.6rem_1fr] items-start gap-3.5 bg-paper px-5 py-4 dark:bg-paper-dark">
         <span class="font-mono text-[13px] font-bold leading-relaxed text-fast dark:text-fast-dark">2</span>
-        <p class="m-0 text-[15.5px] leading-snug">Will you direct staff to report within six months on the City’s spare conduit and dark fibre, and the terms on which a competing provider could use it?</p>
+        <div class="prose prose-page dark:prose-invert max-w-none"><p>Will you direct staff to report within six months on the City’s spare conduit and dark fibre, and the terms on which a competing provider could use it?</p></div>
       </li>
       <li class="grid grid-cols-[1.6rem_1fr] items-start gap-3.5 bg-paper px-5 py-4 dark:bg-paper-dark">
         <span class="font-mono text-[13px] font-bold leading-relaxed text-fast dark:text-fast-dark">3</span>
-        <p class="m-0 text-[15.5px] leading-snug">Will you meet with carriers in your first year, with that conduit and fibre as the offer, and report publicly on what they tell you?</p>
+        <div class="prose prose-page dark:prose-invert max-w-none"><p>Will you meet with carriers in your first year, with that conduit and fibre as the offer, and report publicly on what they tell you?</p></div>
       </li>
     </ol>
   </section>
@@ -307,9 +301,9 @@ if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.
     </div>
   </section>
 
-  <footer class="mt-16 grid gap-2 border-t border-edge pt-5 text-[13.5px] text-dim dark:border-edge-dark dark:text-dim-dark">
-    <p class="m-0 max-w-[70ch]">Every candidate gets the same three questions in the same words. Answers appear here verbatim and unedited. Candidates who do not reply are recorded as not having replied.</p>
-    <p class="m-0 max-w-[70ch]">Kept in a <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://github.com/blark/guelphfibre">public git repository</a>, so the history shows when each entry was added and that nothing was revised after the fact. Answer recorded wrong? <a id="c" class="text-fast underline underline-offset-2 dark:text-fast-dark" href="#">Get in touch</a>.</p>
+  <footer class="prose prose-sm prose-page dark:prose-invert mt-16 max-w-none border-t border-edge pt-6 !text-dim dark:border-edge-dark dark:!text-dim-dark">
+    <p class="max-w-[72ch]">Every candidate gets the same three questions in the same words. Answers appear here verbatim and unedited. Candidates who do not reply are recorded as not having replied.</p>
+    <p class="max-w-[72ch]">Kept in a <a class="text-fast underline underline-offset-2 dark:text-fast-dark" href="https://github.com/blark/guelphfibre">public git repository</a>, so the history shows when each entry was added and that nothing was revised after the fact. Answer recorded wrong? <a id="c" class="text-fast underline underline-offset-2 dark:text-fast-dark" href="#">Get in touch</a>.</p>
     <p class="m-0">Maintained by Mark Baseggio, a resident of Ward&nbsp;2.</p>
   </footer>
 </div>

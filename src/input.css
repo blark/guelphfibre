@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -28,6 +29,30 @@
 @layer base {
   html { -webkit-text-size-adjust: 100%; }
   body { @apply bg-paper text-ink dark:bg-paper-dark dark:text-ink-dark antialiased; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li { text-wrap: pretty; }
   ::selection { @apply bg-fast/20 dark:bg-fast-dark/25; }
   :focus-visible { @apply outline-2 outline-offset-2 outline-fast dark:outline-fast-dark; }
+}
+
+/* prose, tuned to the page palette */
+@utility prose-page {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-links: var(--color-fast);
+  --tw-prose-counters: var(--color-dim);
+  --tw-prose-bullets: var(--color-edge);
+  --tw-prose-hr: var(--color-edge);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-edge);
+  --tw-prose-captions: var(--color-dim);
+  --tw-prose-invert-body: var(--color-ink-dark);
+  --tw-prose-invert-headings: var(--color-ink-dark);
+  --tw-prose-invert-bold: var(--color-ink-dark);
+  --tw-prose-invert-links: var(--color-fast-dark);
+  --tw-prose-invert-counters: var(--color-dim-dark);
+  --tw-prose-invert-bullets: var(--color-edge-dark);
+  --tw-prose-invert-hr: var(--color-edge-dark);
+  --tw-prose-invert-captions: var(--color-dim-dark);
 }
