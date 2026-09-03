@@ -19,14 +19,14 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
   --paper:#0b0f10; --surface:#141a1b; --ink:#e9efed; --muted:#8d999c;
   --rule:#232b2d; --hair:#1a2122;
-  --fast:#4dbdb4; --slow:#e59277;
-  --fast-dim:#4dbdb41f; --slow-dim:#e5927719;
+  --fast:#2f9084; --slow:#cf6a45;
+  --fast-dim:#2f908426; --slow-dim:#cf6a4520;
 }}
 :root[data-theme=dark]{
   --paper:#0b0f10; --surface:#141a1b; --ink:#e9efed; --muted:#8d999c;
   --rule:#232b2d; --hair:#1a2122;
-  --fast:#4dbdb4; --slow:#e59277;
-  --fast-dim:#4dbdb41f; --slow-dim:#e5927719;
+  --fast:#2f9084; --slow:#cf6a45;
+  --fast-dim:#2f908426; --slow-dim:#cf6a4520;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);
@@ -58,21 +58,20 @@ h1 em{font-style:normal;color:var(--slow)}
   font-size:clamp(28px,4.6vw,38px);line-height:1;letter-spacing:-.03em;color:var(--ink)}
 .dealtop span{font-family:"Newsreader",Georgia,serif;font-weight:400;
   font-size:clamp(20px,3.2vw,26px);line-height:1;color:var(--muted)}
-.ov{padding:26px 22px 22px;display:grid;gap:26px}
-.ovrow{display:grid;gap:7px}
-.ovdir{margin:0;font-family:"JetBrains Mono",monospace;font-size:10.5px;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.ovtrack{position:relative;height:44px;background:var(--fast);border-radius:2px;
-  display:flex;align-items:center;justify-content:flex-end;padding:0 14px}
-.ovmine{position:absolute;left:0;top:0;bottom:0;background:var(--slow);
-  border-radius:2px 0 0 2px;min-width:3px;
-  box-shadow:1px 0 0 var(--surface)}
-.ovmax{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700;
-  color:var(--paper);font-variant-numeric:tabular-nums;position:relative}
-.ovmine-l{margin:0;max-width:none;font-size:13.5px;line-height:1.45;color:var(--muted);
-  padding-left:11px;border-left:2px solid var(--slow)}
+.ov{padding:24px 22px 20px;display:grid;gap:20px}
+.ovrow{display:grid;gap:6px}
+.ovdir{margin:0;font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ovbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center}
+.ovtrack{position:relative;height:16px;background:var(--fast);border-radius:2px;overflow:hidden}
+.ovmine{position:absolute;left:0;top:0;bottom:0;background:var(--slow);min-width:4px;
+  box-shadow:2px 0 0 var(--surface)}
+.ovmax{font-family:"JetBrains Mono",monospace;font-size:13.5px;font-weight:700;
+  color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ovmine-l{margin:0;max-width:none;font-size:13px;line-height:1.45;color:var(--muted);
+  padding-left:10px;border-left:2px solid var(--slow)}
 .ovmine-l span{font-family:"JetBrains Mono",monospace;font-weight:700;
-  font-size:14px;color:var(--slow)}
+  font-size:13.5px;color:var(--slow)}
 .ovkey{margin:0;font-size:12px;color:var(--muted);max-width:none}
 
 .payoff{border-top:1px solid var(--rule);padding:24px 22px 28px;
@@ -88,8 +87,7 @@ h1 em{font-style:normal;color:var(--slow)}
 @media (max-width:620px){
   .payoff{grid-template-columns:1fr;gap:16px}
   .big{text-align:left}
-  .ovtrack{height:38px;padding:0 10px}
-  .ovmax{font-size:13px}
+  .ovmax{font-size:12.5px}
 }
 
 /* ── sections ── */
@@ -169,8 +167,8 @@ Here is what $85 a month buys, four kilometres apart.</p>
   <div class="ov">
     <div class="ovrow">
       <p class="ovdir">Download</p>
-      <div class="ovtrack">
-        <i class="ovmine" style="width:1.667%"></i>
+      <div class="ovbar">
+        <div class="ovtrack"><i class="ovmine" style="width:1.667%"></i></div>
         <b class="ovmax">3,000 Mbps</b>
       </div>
       <p class="ovmine-l"><span>50 Mbps</span> at a residential address 2.7&nbsp;km from City&nbsp;Hall</p>
@@ -178,8 +176,8 @@ Here is what $85 a month buys, four kilometres apart.</p>
 
     <div class="ovrow">
       <p class="ovdir">Upload</p>
-      <div class="ovtrack">
-        <i class="ovmine" style="width:0.333%"></i>
+      <div class="ovbar">
+        <div class="ovtrack"><i class="ovmine" style="width:0.333%"></i></div>
         <b class="ovmax">3,000 Mbps</b>
       </div>
       <p class="ovmine-l"><span>10 Mbps</span> at the same address, for the same $85</p>
